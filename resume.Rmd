@@ -1,0 +1,81 @@
+---
+title: Resume
+author: Tony
+categories:
+tags:
+  - resume
+banner: []
+---
+
+# Tony ElHabr
+
++ *Contact:* anthonyelhabr@gmail.com
+
+## Education
+
+### B.S. Electrical Engineering, May 2016, The University of Texas at Austin
+
++ *Primary Technical Core:* Energy Systems and Renewable Energy, GPA: 3.85/4.
+
++ *Honors:* Engineering Honors Program Member, Virginia & Ernest Cockrell, Jr. Scholarship in Engineering Recipient
+
++ *Societies:* Officer/Member of IEEE Power and Energy Society UT Student Branch
+
+## Skills & Abilities
+
+**SOFTWARE**
+
++ *Expert:* R, VBA (for Excel), SQL (Oracle), Windows OS, Microsoft Office Suite
+
++ *Intermediate:* python, MATLAB, PSSE, PowerWorld, HTML/CSS, git, command line
+
++ *Beginner:* SAS, JavaScript, C/C++, x86 assembly language
+
+## Experience
+
+**MARKET OPERATIONS ENGINEER II, CONGESTION REVENUE RIGHTS (CRR) | ERCOT | 6/2017 - present day**
+
++ Prepare data for CRR auctions (approximately twice a month), and validate and analyze results.
+
++ Perform ad-hoc studies of CRR and day-ahead market (DAM) trends.
+
+**CO-FOUNDER/CO-LEADER, ERCOT DATA SCIENCE GROUP | ERCOT | 9/2017 - present day**
+
++ Help conduct monthly meetings of an internal group that discusses data science concepts and practices implementation.
+
+**ENGINEERING DEVELOPMENT PROGRAM (EDP) ENGINEER | ERCOT | 7/2016 - 5/2017**
+
++ Completed 12-month program to provide entry-level engineers with skills for becoming successful in power industry.
+
+***Projects:***
+
++ *NOX Emissions Sensitivity Analysis:* Evaluated impact of varying NOX emission allowance costs on generation dispatch
+and compared relative influence of NOX and CO2 allowance costs.
+
++ *5 - Minute Resolution Wind Forecast Analysis:* Evaluated proposed auto-regressive (AR) model for Multi-Interval Real-
+Time Market (MIRTM) and analyzed accuracy of third-party vendor?s forecasts.
+
++ *Daily Market Summary Template Improvements:* Revised existing real-time (RT) and day-ahead market-(DAM) SQL
+queries to facilitate execution on separate database and re-factored VBA code to improve readability and consistency.
+
+**INSTRUMENTATION ENGINEERING INTERN | EXXONMOBIL | 05/2015 - 08/2015**
+
++ Created Cause & Effect Matrix for boiler safety system using software for Programmable Logic Controllers (PLCs).
+
++ Developed plan to upgrade faulty fire detection system for turbo-expander/re-compressor system.
+
+**MONITORING & DIAGNOSTICS SYSTEMS SUPPORT INTERN | LUMINANT | 05/2014 - 08/2014**
+
++ Improved equipment reliability displays for real time system operations using OSIsoft PI software.
+
++ Developed new PI Asset Framework data archiving structure for equipment tags.
+
+**ELECTRIC DISTRIBUTION PLANNING & COMPUTER SUPPORT CO-OP | CENTERPOINT| 01/2014 - 05/**
+
++ Completed 2016 Distribution Development Plan (DDP) for Hidden Valley substation using CYME software.
+
++ Created street maps for CYME models using Geographical Information System (GIS) software.
+
++ Updated peak-loading spreadsheets to improve projections of future load growth and expenses.
+
+
