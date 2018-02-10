@@ -1,10 +1,7 @@
 ---
-title: Resume
-author: Tony
-categories:
-tags:
-  - resume
-banner: []
+output:
+  html_document:
+    css: styles.css
 ---
 
 # Tony ElHabr
