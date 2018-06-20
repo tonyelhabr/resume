@@ -1,6 +1,7 @@
 ---
 output:
   html_document:
+    toc: false
     css: styles.css
 ---
 
@@ -50,7 +51,7 @@ output:
 and compared relative influence of NOX and CO2 allowance costs.
 
 + *5 - Minute Resolution Wind Forecast Analysis:* Evaluated proposed auto-regressive (AR) model for Multi-Interval Real-
-Time Market (MIRTM) and analyzed accuracy of third-party vendor?s forecasts.
+Time Market (MIRTM) and analyzed accuracy of third-party vendor's forecasts.
 
 + *Daily Market Summary Template Improvements:* Revised existing real-time (RT) and day-ahead market-(DAM) SQL
 queries to facilitate execution on separate database and re-factored VBA code to improve readability and consistency.
