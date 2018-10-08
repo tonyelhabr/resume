@@ -3,7 +3,15 @@ output:
   html_document:
     toc: false
     css: styles.css
+  word_document:
+    toc: false
 ---
+
+```{r include = FALSE}
+# rmarkdown::render("resume.Rmd", output_format = rmarkdown::html_document(keep_md = TRUE))
+# rmarkdown::render("resume.Rmd", output_format = rmarkdown::word_document(keep_md = TRUE))
+# rmarkdown::render("resume.Rmd", output_format = teproj::word_document_te(keep_md = TRUE))
+```
 
 # Tony ElHabr
 

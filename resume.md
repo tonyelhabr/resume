@@ -3,7 +3,11 @@ output:
   html_document:
     toc: false
     css: styles.css
+  word_document:
+    toc: false
 ---
+
+
 
 # Tony ElHabr
 
