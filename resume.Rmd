@@ -1,0 +1,149 @@
+---
+title: "Tony's Resume"
+author: Lijia Yu
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: false
+---
+
+Aside
+================================================================================
+
+
+![Lijia Yu](https://avatars0.githubusercontent.com/u/15663460?s=400&u=3beb3319cc2415611725320d71b51e024610e26f&v=4){width=80%}
+
+
+Contact Info {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-envelope"></i> anthonyelhabr@gmail.com
+- <i class="fa fa-github"></i> [github.com/tonyelhabr](https://github.com/tonyelhabr)
+- <i class="fa fa-phone"></i> +1 210-687-6977
+- For more information, please contact me via email.
+
+
+Skills {#skills}
+--------------------------------------------------------------------------------
+
+- Experienced in statistical analysis, statistical learning models, and optimization methods.
+
+- Full experience with next generation sequencing data analysis.
+
+- **Advanced**: R, VBA (for Excel), SQL (Oracle), Windows OS, Microsoft Office Suite, PowerWorld, PSSE, POM
+
+- **Intermediate**: python, SAS, OsiSoft PiSeeq, git, JavaScript (including Plotly and D3), HTML/CSS, C#, ASP.NET Web Framework
+
+- **Beginner** (what I've used sparingly): C/C++, assembly language, Arena (simulation)
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+Last updated on `r Sys.Date()`.
+
+
+
+Main
+================================================================================
+
+Tony ElHabr{#title}
+--------------------------------------------------------------------------------
+
+### Electrical engineer (power systems) interested in energy reliability and markets (electricity), and data science in general
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+### The Univrsity of Texas at Austin
+
+B.S. in Electrical Engineering (Power Systems)
+
+Austin, TX
+
+2016 (Spring)
+
+### Georgia Institute of Technology
+
+M.S. in Analytics
+
+(Remote)
+
+2020 (Spring)
+
+Professional Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+### Data Scientist, intern
+
+SupStat Inc.
+
+Beijing, China
+
+2014
+
+::: concise
+- Taught R language to beginners. 
+- Wrote Shiny app demos.
+- Converted statistical tutorials from SPSS to R language.
+:::
+
+### Bioinformatician
+
+My Health Gene Technology Co., Ltd.
+
+Beijing, China
+
+2015 - 2016
+
+::: concise
+- Analyzed whole-exome sequencing data. 
+- Wrote analysis pipelines of ChIP-seq, single cell DNA-seq and single cell RNA-seq.
+- Studied tumor metastasis and wrote research reports. 
+- Also did case studies to identify the genetic defect causing rare disease.
+:::
+
+
+Teaching Experience {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+### Introduction to R Language for Beginners.
+
+Instructor of R and Data Mining Training Courses at SupStat Inc.
+
+Beijing, China
+
+2014
+
+### Computational Biology and Bioinformatics.
+
+Teaching assistant of GBS CB2-201 courses at UAB
+
+AL, USA
+
+2016 - 2017
+
+
+Selected Publications and Posters {data-icon=file}
+--------------------------------------------------------------------------------
+
+### Genetic and epigenetic signals are found predictive to the distribution of intra-individual divergence of alternative splicing.
+
+Poster for 2013 International Conference of Genomics
+
+Qingdao, China
+
+2014
+
+**Yu L**, Chen B, Zhang Z.
+
+### ESCRT-0 complex modulates Rbf mutant cell survival by regulating Rhomboid endosomal trafficking and EGFR signaling.
+
+J Cell Sci. 2016 May 15;129(10):2075-84.
+
+N/A
+
+2016 
+
+Sheng Z, **Yu L**, Zhang T, Pei X, Li X, Zhang Z and Du W. 
