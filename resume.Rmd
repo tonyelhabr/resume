@@ -1,149 +1,107 @@
 ---
-title: "Tony's Resume"
-author: Lijia Yu
-date: "`r Sys.Date()`"
 output:
-  pagedown::html_resume:
-    # set it to true for a self-contained HTML page but it'll take longer to render
-    self_contained: false
+  html_document:
+    toc: false
+    css: styles.css
+  word_document:
+    toc: false
 ---
 
-Aside
-================================================================================
+```{r include = FALSE}
+# rmarkdown::render("resume.Rmd", output_format = rmarkdown::html_document(keep_md = TRUE))
+# rmarkdown::render("resume.Rmd", output_format = rmarkdown::word_document(keep_md = TRUE))
+# rmarkdown::render("resume.Rmd", output_format = teproj::word_document_te(keep_md = TRUE))
+```
+
+# Tony ElHabr
+
++ *Contact:* anthonyelhabr@gmail.com
+
+## Education
+
+### M.S. Analytics, Spring 2020, Georgia Institute of Technology
+
+**Working towards degree (2 classes per semester) while working full-time.**
+
++ *Focus:* Analytics Track, GPA: 3.5/4
+
++ *Notable Classes:* Discrete Optimization, Simulation, Regression Analysis, Time Series Analysis, Data and Visual Analytics
+
+### B.S. Electrical Engineering (EE), May 2016, The University of Texas at Austin
+
++ *Focus:* Energy Systems and Renewable Energy, GPA: 3.85/4.
+
++ *Honors & Socities:* Engineering Honors Program Member, Virginia & Ernest Cockrell, Jr. Scholarship in Engineering Recipient; Officer/Member of IEEE Power and Energy Society UT Student Branch
+
++ *Other:* Lab Teaching Assistant, EE438: Electronics Circuits (Spring 2016); Academic Tutor, multiple EE classes, (2016)
+
+## Skills & Abilities
+
+**SOFTWARE**
+
++ *Advanced:* R, VBA (for Excel), SQL (Oracle), Windows OS, Microsoft Office Suite, PowerWorld, PSSE
+
++ *Intermediate:* python, SAS, OsiSoft PiSeeq, JavaScript (Plotly and D3), HTML/CSS, git, C#, ASP.NET Web Framework
+
++ *Used:* C/C++, x86 assembly language, MATLAB 
+
+## ERCOT Experience
+
+**OPERATIONS ENGINEER II, OPERATIONS PLANNING (GRID ANALYSIS) | ERCOT | 12/2018 - present**
+
++
+
+***Major Projects & Responsibilities:***
+
++ *N-1-1 Tool:*
+
++ *Voltage Profile Seasonal Studies:* Run seasonal studies (4 total) incoprorating Transmission Service Provider (TSP) information to identify potential voltage violations in response to system changes.
+
+**MARKET OPERATIONS ENGINEER II, CONGESTION REVENUE RIGHTS (CRR) | ERCOT | 6/2017 - 12/2018**
+
++ Prepared data for CRR auctions (about twice a month), and validated and analyzed results.
+
++ Performed ad-hoc analysis of CRR and Day-Ahead Market (DAM) trends.
+
+***Studies:***
+
++ *Price Convergence:* Evaluated correlations among settlement point prices across CRR, DAM, and Real-Time Market (DAM). Created price contour maps for illustrative purposes.
+
++ *Bidding Behavior:* Studied popularity of "penny bids", fixed hedges, and portfolio diversity among CRR participants.
+
++ *CRR Validation:* Led group of CRR and Market Analysis team members in developing automated SAS tool (set of programs) to perform checks of CRR optimization output.
+
+**CO-FOUNDER/CO-LEADER, ERCOT DATA SCIENCE GROUP | ERCOT | 9/2017 - present day (19 meetings)**
+
++ Schedule speakers for periodic meetings of an internal group that discusses data science concepts and their implementation.
+
++ Personally given 4 presentations: (1) R and the "tidyverse"; (2) logistic regression; (3) live-coding of solutions for Introduction to Statistical Learning ISLR) book exercises; (4) SQL tips and tricks.
+
+**ENGINEERING DEVELOPMENT PROGRAM (EDP) ENGINEER | ERCOT | 7/2016 - 5/2017**
+
++ Completed 12-month program to provide entry-level engineers with skills for becoming successful in power industry.
+
+***Projects:***
+
++ *NOX Emissions Sensitivity Analysis:* Evaluated impact of varying NOX emission allowance costs on generation dispatch and compared relative influence of NOX and CO2 allowance costs.
+
++ *5 - Minute Resolution Wind Forecast Analysis:* Evaluated proposed auto-regressive (AR) model for Multi-Interval Real-Time Market (MIRTM) and analyzed accuracy of third-party vendor's forecasts.
+
++ *Daily Market Summary Template Improvements:* Revised existing real-time (RT) and day-ahead market-(DAM) SQL queries to facilitate execution on separate database and re-factored VBA code to improve readability and consistency.
+
+## Pre-ERCOT Experience
+
+**INSTRUMENTATION ENGINEERING INTERN | EXXONMOBIL | 05/2015 - 08/2015**
+
++ Created Cause & Effect Matrix for boiler safety system using software for Programmable Logic Controllers (PLCs).
+
++ Developed plan to upgrade faulty fire detection system for turbo-expander/re-compressor system.
+
+**MONITORING & DIAGNOSTICS SYSTEMS SUPPORT INTERN | LUMINANT | 05/2014 - 08/2014**
+
++ Improved equipment reliability displays for real time system operations using OSIsoft PI software.
 
 
-![Lijia Yu](https://avatars0.githubusercontent.com/u/15663460?s=400&u=3beb3319cc2415611725320d71b51e024610e26f&v=4){width=80%}
+**ELECTRIC DISTRIBUTION PLANNING & COMPUTER SUPPORT CO-OP | CENTERPOINT| 01/2014 - 05/2014**
 
-
-Contact Info {#contact}
---------------------------------------------------------------------------------
-
-- <i class="fa fa-envelope"></i> anthonyelhabr@gmail.com
-- <i class="fa fa-github"></i> [github.com/tonyelhabr](https://github.com/tonyelhabr)
-- <i class="fa fa-phone"></i> +1 210-687-6977
-- For more information, please contact me via email.
-
-
-Skills {#skills}
---------------------------------------------------------------------------------
-
-- Experienced in statistical analysis, statistical learning models, and optimization methods.
-
-- Full experience with next generation sequencing data analysis.
-
-- **Advanced**: R, VBA (for Excel), SQL (Oracle), Windows OS, Microsoft Office Suite, PowerWorld, PSSE, POM
-
-- **Intermediate**: python, SAS, OsiSoft PiSeeq, git, JavaScript (including Plotly and D3), HTML/CSS, C#, ASP.NET Web Framework
-
-- **Beginner** (what I've used sparingly): C/C++, assembly language, Arena (simulation)
-
-
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
-
-Last updated on `r Sys.Date()`.
-
-
-
-Main
-================================================================================
-
-Tony ElHabr{#title}
---------------------------------------------------------------------------------
-
-### Electrical engineer (power systems) interested in energy reliability and markets (electricity), and data science in general
-
-Education {data-icon=graduation-cap data-concise=true}
---------------------------------------------------------------------------------
-
-### The Univrsity of Texas at Austin
-
-B.S. in Electrical Engineering (Power Systems)
-
-Austin, TX
-
-2016 (Spring)
-
-### Georgia Institute of Technology
-
-M.S. in Analytics
-
-(Remote)
-
-2020 (Spring)
-
-Professional Experience {data-icon=suitcase}
---------------------------------------------------------------------------------
-
-### Data Scientist, intern
-
-SupStat Inc.
-
-Beijing, China
-
-2014
-
-::: concise
-- Taught R language to beginners. 
-- Wrote Shiny app demos.
-- Converted statistical tutorials from SPSS to R language.
-:::
-
-### Bioinformatician
-
-My Health Gene Technology Co., Ltd.
-
-Beijing, China
-
-2015 - 2016
-
-::: concise
-- Analyzed whole-exome sequencing data. 
-- Wrote analysis pipelines of ChIP-seq, single cell DNA-seq and single cell RNA-seq.
-- Studied tumor metastasis and wrote research reports. 
-- Also did case studies to identify the genetic defect causing rare disease.
-:::
-
-
-Teaching Experience {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-### Introduction to R Language for Beginners.
-
-Instructor of R and Data Mining Training Courses at SupStat Inc.
-
-Beijing, China
-
-2014
-
-### Computational Biology and Bioinformatics.
-
-Teaching assistant of GBS CB2-201 courses at UAB
-
-AL, USA
-
-2016 - 2017
-
-
-Selected Publications and Posters {data-icon=file}
---------------------------------------------------------------------------------
-
-### Genetic and epigenetic signals are found predictive to the distribution of intra-individual divergence of alternative splicing.
-
-Poster for 2013 International Conference of Genomics
-
-Qingdao, China
-
-2014
-
-**Yu L**, Chen B, Zhang Z.
-
-### ESCRT-0 complex modulates Rbf mutant cell survival by regulating Rhomboid endosomal trafficking and EGFR signaling.
-
-J Cell Sci. 2016 May 15;129(10):2075-84.
-
-N/A
-
-2016 
-
-Sheng Z, **Yu L**, Zhang T, Pei X, Li X, Zhang Z and Du W. 
++ Completed 2016 Distribution Development Plan (DDP) for Hidden Valley substation using CYME software.
