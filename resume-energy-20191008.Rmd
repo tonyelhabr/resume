@@ -102,7 +102,7 @@ Completed 12-month program to provide entry-level engineers with skills for beco
 
 + Personally given 4 presentations: (1) R and the "tidyverse"; (2) logistic regression; (3) live-coding of assigned exercises; (4) SQL tips.
 
-**Undergraduate Internship Experience**
+## Undergraduate Internship Experience
 
 + Instrumentation Engineering Intern, ExxonMobil
 
