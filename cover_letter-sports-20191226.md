@@ -4,10 +4,7 @@ output:
     keep_md: true
 ---
 
-```{r include=F, echo=F}
-# This causes recursion!
-# rmarkdown::render(input = rstudioapi::getSourceEditorContext()$path)
-```
+
 
 
 <style>
