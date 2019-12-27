@@ -1,13 +1,4 @@
 
-<style>
-hide {
-  display: none;
-}
-</style>
-
-<hide> If the PDF output does not look good, consider creating it using
-<http://html2pdf.com/>. </hide>
-
 This repo stores my current and past resumes, cover letters, headliners,
 etc., used for different fields.
 
