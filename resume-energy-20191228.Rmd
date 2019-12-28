@@ -1,0 +1,111 @@
+---
+title: ''
+output:
+  html_document:
+    css: styles.css
+---
+
+<center><header-resume>**Anthony (Tony) ElHabr** --- Operations Engineer at ERCOT | MS Analytics at Georgia Tech<header-resume></center>
+
+<hide><br/></hide>
+
+***Contact:*** Email: <anthonyelhabr@gmail.com> | Phone: 210-687-6977<hide> | LinkedIn: <https://www.linkedin.com/in/anthony-elhabr/> | Website: <https://tonyelhabr.rbind.io></hide>
+
+## Work Experience<hide> (Energy Industry)</hide>
+
+**Operations Engineer, Grid Analysis | Electric Reliability Council of Texas (ERCOT) | 12/2018 - present**
+
+Develop tools and procedures to monitor transmission and generator events on the grid in real-time and up to 90 days in the future.
+
+<hide-title>***Projects & Responsibilities:***</hide-title>
+
++ *Trend Analysis Tool:* Develop and maintain web-based<hide> (.NET framework)</hide> BI displays<hide> (JS, R, SAS, SQL)</hide> for analyzing daily market and operations data.
+
++ *N-2 Tool:* Developed scripts<hide> (VBA, C#, R)</hide> for high performance power flow tool to evaluate high-impact N-2 contingencies daily.
+
++ *Panhandle Constraint Analysis:* Evaluated operational and economic benefits of alternative methods for calculating Panhandle generic transmission limit.
+
++ *2019 Summer Analysis:* Gathered data and created visuals<hide> (R, SQL, Excel)</hide> for outages and ancillary services in review of ERCOT's "tight" 2019 summer.
+
++ *Voltage Profile Seasonal Studies:* Conduct seasonal studies coordinated with Transmission Service Providers (TSPs) to define generator voltage setpoints.<hide> (PowerWorld, PSSE, python)</hide>
+
+**Market Operations Engineer, Congestion Revenue Rights (CRR) | ERCOT | 6/2017 - 12/2018**
+
+Prepared data for CRR auctions (twice a month), and validated and analyzed results.
+
+<hide-title>***Projects/Studies:***</hide-title>
+
++ *Price Convergence:* Evaluated correlations among settlement point prices across markets. Created price contour maps.<hide> (R, SQL)</hide>
+
++ *Bidding Behavior:* Studied popularity of “penny bids”, fixed hedges, and portfolio diversity among CRR participants.<hide> (R, SQL)</hide>
+
++ *CRR Validation:* Led group in developing automated tool to perform checks of CRR optimization software.<hide> (SAS, SQL)</hide>
+
+**Power Systems Engineer, Engineering Development Program (EDP) | ERCOT | 7/2016 - 5/2017**
+
+Completed 12-month program to provide entry-level engineers with skills for becoming successful in power industry.
+
+<hide-title>***Projects:***</hide-title>
+
++ *5-Minute Wind Forecast Analysis:* Evaluated ARIMA models<hide> (R, MATLAB)</hide> for market design proposals and analyzed accuracy of vendor's forecasts.
+
++ *Daily Market Summary Improvements:* Revised real-time (RT) and day-ahead market-(DAM) queries and re-factored post-processing code.<hide> (SQL, VBA)</hide>
+
++ *NOX Emissions Sensitivity Analysis:* Evaluated impact of varying NOX emission allowance costs on generation dispatch.<hide> (UPLAN, PowerWorld)</hide>
+
+## Other Experience
+
+**Data Science Group Leader, ERCOT Data Science Group (Internal) | ERCOT | 9/2017 - present**
+
++ Schedule speakers for periodic meetings discussing data science concepts and their implementation.
+
++ Personally given 4 presentations: (1) R and the "tidyverse"; (2) logistic regression; (3) live-coding of assigned exercises; (4) SQL tips.
+
+<hide>+ Topics/software discussed: R, python, SAS, SQL, Splunk, ssh, linear and logistic regression, neural networks, Excel, internal BI tools.</hide>
+
++ Held 21 meetings total (as of Dec. 2019), averaging 15 - 25 attendees per meeting.
+
+<hide>+ Co-founded in Sep. 2017.</hide>
+
+**EDP Reach Co-Chair | ERCOT | 1/2019 - present**
+
++ Co-lead group of alumni (20+) from ERCOT's EDP in planning and running at least five different outreach events every.
+
++ Organized full-day, on-site event for college student networking (30 students) in Sep. 2018.
+
+## Internship Experience (Undergraduate)
+
++ Instrumentation Engineering Intern, ExxonMobil
+
++ Monitoring & Diagnostics Systems Support Intern, Luminant / Vistra Energy
+
++ Electric Distribution Planning & Computer Support Co-op, CenterPoint Energy
+
+
+## Education
+
+**MS Analytics, Spring 2020, Georgia Institute of Technology, GPA: 3.6/4**
+
+Working towards degree (2 classes per semester) while working full-time.
+
++ *Notable Classes:* Discrete Optimization, Simulation, Bayesian Statistics, Machine Learning, Regression Analysis, Time Series Analysis
+
++ *Work Experience:* Teaching Assistant, Time Series Analysis (Spring 2020)
+
+**BS Electrical Engineering, May 2016, The University of Texas at Austin, GPA: 3.85/4**
+
++ *Honors & Societies:* Engineering Honors Program Member, Cockrell Scholarship Recipient; Officer/Member of IEEE Power and Energy Society Student Branch
+
++ *Work Experience:* Teaching Assistant, Electronics Circuits (Spring 2016); Academic Tutor, multiple Engineering classes (2016)
+
+## Skills & Abilities
+
+<hide>**Software**</hide>
+
++ *Advanced:* R, SQL (Oracle), VBA (Excel), Windows OS, Microsoft Office Suite
+
++ *Intermediate:* python, SAS, JavaScript (Plotly, D3), HTML/CSS, git, C#, .NET Web Framework, PowerWorld, PSSE
+
++ *Other:* C/C++, x86 assembly language, MATLAB, UPLAN
+
+<!--Approximately 4 additional lines.-->
