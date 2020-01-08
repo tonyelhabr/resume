@@ -1,4 +1,43 @@
 
+# Misc.
+
++ Hogan: "[Financial Transmission Rights] (FTRs) are claimed to serve four main purposes"
++ provide a hedge for nodal price differences,
++ provide revenue sufficiency for contracts for differences,
++ distribute the merchandizing surplus an RTO accrues in market operations, and
++ provide a price signal for transmission and generation developers.” [^1]
+
+[^1]: Source: Richard Benjamin’s FTR Properties: Advantages and Disadvantages
+
+
++ LODF
+    + Definition: "Line Outage Distribution Factors (LODFs) are a sensitivity measure of how a change in a line’s status affects the flows on other lines in the system. On an energized line, the LODF calculation determines the percentage of the present line flow that will show up on other transmission lines after the outage of the line. For example, consider an energized line, called LineX, whose present MW flow is 100 MW." [^1]
+    + Importance: Quantify the sensitivity to transmission outages.
+
+[^1]: https://www.powerworld.com/WebHelp/Content/MainDocumentation_HTML/Line_Outage_Distribution_Factors_LODFs.htm
+
++ PTDF:
+    + Definition: "Power Transfer Distribution Factors (PTDF) indicate the incremental change in real power that occurs on transmission lines due to real power transfers between two regions. These regions can be defined by areas, zones, super areas, single buses, injection groups or the system slack. These values provide a linearized approximation of how the flow on the transmission lines and interfaces change in response to a transaction between the Seller (source) and the Buyer (sink)."
+    
+    + Importance
+
++ CRR: "A Congestion Revenue Right (CRR) is a financial instrument that results in a charge or a payment to the owner, when the ERCOT transmission grid is congested in the Day Ahead Market (DAM). CRRs may be used as either a financial hedge, or a financial investment. When used as a hedge, a CRR locks in the price of congestion at the purchase price of the CRR. When purchased as an investment, it may be used as a financial tool to speculate whether the congestion rent will be greater than the purchase price.
+
+The main purposes of the ERCOT CRR market are to:
+
++ Support a liquid energy market by providing tradable financial instruments for the hedging of transmission congestion charges
++ Allow market participants to eliminate or greatly reduce the cost uncertainties resulting from transmission congestion charges
++ Encourage competitive energy trading, where the costs of congestion might otherwise be an impediment" [^1]
+
+[^1]: http://www.ercot.com/mktinfo/crr
+    
+
++ [Demand/supply curves are convex (and not linear) due to:](https://www.quora.com/Why-are-demand-curves-downward-sloping)
+  1. Substitution effect: "Suppose that the price of the good falls from p0 and p1then the consumer will substitute other goods to buy this good."
+  2. Income effect: "As the price of the good drop from $p_0$ to $p_1$ the quantity demanded will rise because of the rise in real income of the consumer."
+  3. Population effect: "As the price of any good falls it become affordable to more people, so at lower price more people enter the market and demand for that good."
+  4. Law of diminishing marginal utility: "As you consume more and more of a good you derive less and less satisfaction from the consumption of the additional unit of that good"
+
 # EDF Questionnaire
 
 ## Questions
@@ -16,9 +55,9 @@
 
 1. In general, I'm proud of the way that I was able to quickly and effectively take on several different responsibilities in the Grid Analysis group at ERCOT (after moving from the CRR group in Dec. 2018, which had vastly different responsibilities).
 
-- I became the "primary" in conducting Voltage Profile Seasonal Studies despite never seeing how these twice-a-year studies were conducted before.
-- I did nearly all of the programming for computationally intensive contingency analysis tool that can take real-time EMS cases, run N-2 analysis (relatively) quickly, and generate interpretable results for managers.
-- During the "tight" summer, I developed displays to enhance monitoring of real-time system conditions.
++ I became the "primary" in conducting Voltage Profile Seasonal Studies despite never seeing how these twice-a-year studies were conducted before.
++ I did nearly all of the programming for computationally intensive contingency analysis tool that can take real-time EMS cases, run N-2 analysis (relatively) quickly, and generate interpretable results for managers.
++ During the "tight" summer, I developed displays to enhance monitoring of real-time system conditions.
 
 In all, I feel like I've developed a better understanding of the balance of markets (which I got some of from my CRR role) and reliability in grid operations.
 
@@ -50,17 +89,17 @@ For as long as I can remember, my teachers, peers, and family have applauded my 
 
 Now, regarding price and congestion forecasting, I would use an approach that leverages simulation and sensitivity analysis (and, given the appropriate time and computational resources, even AI) to model (specifcally, to model the DAM, but also CRR relevant information, such as bids from other participants). This would involve building out a large set of scenarios that accounts for the variability in the many "inputs" to such forecasting (and, of course, using software to run the simulations):
 
-- transmission topology;
-- weather conditions (in particular, the most extreme temperatures/worst-case conditions);
-- hourly nodal demand---which, among other things, is a combination of weather-dependent residential load, price responsive load, and more constant industrial load);
-- fuel prices (particularly, that of natural gas), which plays a role in unit availability;
-- (hourly) generation characteristics, i.e. intermittency of renewables, startup and operating costs, heat rate curves, ramping capabilities, max and min capabilities, AS capabilities, etc.;
-- generation outages---which tend to have a seasonal pattern;
-- transmission outages---which, aside from maintenance needs, may be related to new equipment energization;
-- DC tie scheduling (the means of importing/exporting in ERCOT);
-- contingencies and RASs;
-- equipment ratings;
-- bidding behavior of other market participants.
++ transmission topology;
++ weather conditions (in particular, the most extreme temperatures/worst-case conditions);
++ hourly nodal demand---which, among other things, is a combination of weather-dependent residential load, price responsive load, and more constant industrial load);
++ fuel prices (particularly, that of natural gas), which plays a role in unit availability;
++ (hourly) generation characteristics, i.e. intermittency of renewables, startup and operating costs, heat rate curves, ramping capabilities, max and min capabilities, AS capabilities, etc.;
++ generation outages---which tend to have a seasonal pattern;
++ transmission outages---which, aside from maintenance needs, may be related to new equipment energization;
++ DC tie scheduling (the means of importing/exporting in ERCOT);
++ contingencies and RASs;
++ equipment ratings;
++ bidding behavior of other market participants.
     
 Some of these things are certainly more "uncertain" than others (bidding behavior and forced generation outages) and might potentially be treated as a "constant" (a constant "unknown") in simulations. Those inputs that are more "unknown" than "uncertain" are probably better evaluated with re-enforcement learning techniques (which is beyond the scope of simulations and sensitivity analysis but would be a worthwhile venture given sufficient time and resources).
 
@@ -264,7 +303,7 @@ Same graph, but for Major IPPs and LSEs only
 + IPP position:
   + Are short HUBs
   + Are long with generator Pnodes
-+ LSE
++ LSE position:
   + Are short ZONEs
 
 + Only HUB is fully tradable with good liquidity
