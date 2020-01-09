@@ -1,5 +1,36 @@
 
-## xG
+# EPV
+
+## ["POINTWISE: Predicting Points and Valuing Decisions in Real Time with NBA Optical Tracking Data" Paper](http://www.lukebornn.com/papers/cervone_ssac_2014.pdf)
+
++ Abstract: "Basketball is a game of decisions; at any moment, a player can change the character of a possession by choosing to pass, dribble, or shoot. The current state of basketball analytics, however, provides no way to quantitatively evaluate the vast majority of decisions that players make, as most metrics are driven by events that occur at or near the end of a possession, such as points, turnovers, and assists. We propose a framework for using player-tracking data to assign a point value to each moment of a possession by computing how many points the offense is expected to score by the end of the possession, a quantity we call expected possession value (EPV). EPV allows analysts to evaluate every decision made during a basketball game – whether it is to pass, dribble, or shoot – opening the door for a multitude of new metrics and analyses of basketball that quantify value in terms of points."
+
+"The major obstacle to closing this gap is the current inability to evaluate the individual tactical decisions that form the substructure of every possession of every basketball game. For example, there is no current method to estimate the value of a dribble penetration or to compare the option of taking a contested shot to the option of passing to an
+open teammate."
+
+"In this paper, we propose and implement a framework that removes this obstacle. Using player-tracking data, we develop a coherent, quantitative representation of a whole possession that summarizes each moment of the possession in terms of the number of points the offense is expected to score – a quantity we call expected possession value, or EPV... We accomplish this by specifying and fitting a probabilistic model that encodes how ball handlers make decisions based on the spatial configuration of the players on the court. EPV assigns a point value to every tactical option available to a player at each moment of a possession, allowing analysts to evaluate each decision that a player makes. For example, passing to a wide open shooter in the corner or near the basket is worth more expected points than to a covered player in a similar place."
+
+"EPV is a conditional expectation – the expected number of points the offense will score, given the spatial configuration of the players and ball at time during the possession ($d_t$): $\text{EPV} = E[\text{points} | d_t]$.
+
+"By definition, the current EPV of a possession is the weighted average of the outcomes of all future paths that the possession could take. Calculating this requires a model that defines a probability distribution over what the ballhandler is likely to do next, given the spatial configuration of the players on the court, as we need to understand what future paths the possession can take and how likely they are given the present state. We call this model the possession model. Using a Markovian assumption[---we assume that the decision the ballhandler makes depends only on the current spatial configuration of the possession---]the possession model allows us to estimate both (a) the probability that a player will make a particular decision in a given situation and (b) the resulting EPV of the possession after the player makes that decision. Taken together, we learn both how valuable any moment in a possession is, as well as the features of the offense's configuration that produce this value."
+
+"Our possession model breaks down a player's options into discrete actions that may take several seconds to complete (e.g., passing or shooting) or continuous actions that evolve instantaneously (e.g., moving to the left or right). We call the former actions macrotransitions and the latter actions microtransitions. Using this breakdown, we can rewrite EPV at time during a possession by conditioning on the ballhandler's next action during a small time
+window ($\epsilon$):"
+
+$$
+\begin{array}{cclr}
+EPV(t) & = & E[\text{points} | d_t] \\
+& = & E[\text{points} | \text{macro in } (t, t + \epsilon), d_t] P( \text{macro in } (t, t + \epsilon) | d_t) + \\
+& & E[\text{points} | \text{micro in } (t, t + \epsilon), d_t] P( \text{micro in } (t, t + \epsilon) | d_t) & (1)
+\end{array}
+$$
+
+
+"In our current implementation, we define passes, shots, and turnovers as macrotransitions, and all movements that players make with the ball as microtransitions."
+
+"The macro/microtransition dichotomy facilitates calculating components of (1) using statistical models. The macrotransition probabilities $P( \text{macro in } (t, t + \epsilon) | d_t)$ (e.g., the instantaneous probability that a player will pass or shoot the ball) respond to the full-resolution spatial configuration of the players, and are therefore the most nuanced components. We compute these using competing risks, a statistical framework for modeling the occurrence of discrete events in continuous time, incorporating situational covariates (e.g., presence of defender between player and teammate), and spatially-smoothed random effects that capture individual players' tendencies. We compute $E[\text{points} | \text{macro in } (t, t + \epsilon), d_t]$ by modeling a coarsened version of the court space as a homogeneous Markov chain (a common technique in baseball [6] and football [7]). We compute the final components in (1), based on microtransitions, from the macrotransition components and some basic mathematical assumptions of local space-time smoothness."
+
+# xG
 
 ### ["Premier League Projections and New Expected Goals" Article](https://cartilagefreecaptain.sbnation.com/2015/10/19/9295905/premier-league-projections-and-new-expected-goals)
 
@@ -63,7 +94,7 @@
   + RMSE of 0.258 on in-sample data and out-of sample data.
   + R^2 for Ligue 1 was notably lower compared to the other leagues.
 
-### ["Soccer Showcase: Expected Goals, Explained" YouTube Video ](https://www.youtube.com/watch?v=mPTno8tDCbs) (Uploaded 8/28/2018)
+## ["Soccer Showcase: Expected Goals, Explained" YouTube Video ](https://www.youtube.com/watch?v=mPTno8tDCbs) (Uploaded 8/28/2018)
 
 + Inputs:
   + distance (to goal)
