@@ -1,0 +1,85 @@
+
+## xG
+
+### ["Premier League Projections and New Expected Goals" Article](https://cartilagefreecaptain.sbnation.com/2015/10/19/9295905/premier-league-projections-and-new-expected-goals)
+
++ Definition (brief):
+  + "Expected goals is a method for estimating the quality of chances that a football team creates or concedes in a match. This is the thing I like a lot about xG. It may take a lot of data crunching to create specific xG values, but the underlying idea makes football sense. How many good chances did a team create?"
+  
++ Inputs (brief):
+  + distance (to goal)
+  + angle (to goal)
+  + type of pass
+    + cross
+    + throughball
+    + etc.
+  + type of play leading to shot
+    + set play
+    + counterattack
+    + establish possession
+    + etc.
+
++ Formula for "Regular Shots"
+  + log(`goals`) = 
+  (
+  -3.19 
+  - 0.095 * `distance` 
+  + 3.18 * `inverse_distance` 
+  + 1.88 * `relative_angle` 
+  + 0.24 * `inverse_angle` 
+  - 2.09 * `inverse_dist*angle` 
+  + 0.45 * throughball_assist 
+  + 0.64 * throughball_2nd_assist
+  + 0.31 * assist_across_face 
+  - 0.15 * cutback_assist 
+  + 2.18 * inverse_assist_distance 
+  + 0.12 * assist_angle 
+  + 0.23 * fast_break 
+  + 0.18 * counterattack 
+  + 0.09 * established_possession 
+  - 0.18 * following_corner 
+  + 1.2 * big_chance 
+  + 1.1 * following_error 
+  + 0.39 * following_dribble 
+  + 0.14 * dribble_distance 
+  + 0.37 * rebound 
+  + 0.03 * game_state 
+  + 0.07 * Bundesliga 
+  - 0.1 * EPL 
+  - 0.09 * LaLiga 
+  - 0.07 * SerieA
+  )
+  
++ There are additional formulas for
+  + headed shots assisted by crosses
+  + non-headed shots assisted by crosses
+  + headed shots not assisted by crosses
+  + shots from direct free kicks
+  + shots following a dribble of the keeper
+  
++ Evaluation:
+  + Used 2010-20111 through 2013-2014 data ffor big five leagues for training data.
+  + Used 2014-2105 data from big five leagues for testing data.
+  + RMSE of 0.258 on in-sample data and out-of sample data.
+  + R^2 for Ligue 1 was notably lower compared to the other leagues.
+
+### ["Soccer Showcase: Expected Goals, Explained" YouTube Video ](https://www.youtube.com/watch?v=mPTno8tDCbs) (Uploaded 8/28/2018)
+
++ Inputs:
+  + distance (to goal)
+  + big_chance
+    + "A situation where a player should reasonable be expected to score usually in a one-on-one scenario or from very close range."
+  + directness
+  + assist_dist
+  + dribble
+  + rebound
+  + assist_angle
+  + counterattack
+  + error
+  + throughball
+  + angle (to goal)
+  
++ Inuition:
+  + Provides an estimate the quality of the scoring opportunity
+  + "What is the likelihood that a shot from this location and in this game situtation will be scored?"
+    + location + situtation = xG

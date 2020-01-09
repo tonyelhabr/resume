@@ -19,7 +19,7 @@
 + PTDF:
     + Definition: "Power Transfer Distribution Factors (PTDF) indicate the incremental change in real power that occurs on transmission lines due to real power transfers between two regions. These regions can be defined by areas, zones, super areas, single buses, injection groups or the system slack. These values provide a linearized approximation of how the flow on the transmission lines and interfaces change in response to a transaction between the Seller (source) and the Buyer (sink)."
     
-    + Importance
+    + Importance: 
 
 + CRR: "A Congestion Revenue Right (CRR) is a financial instrument that results in a charge or a payment to the owner, when the ERCOT transmission grid is congested in the Day Ahead Market (DAM). CRRs may be used as either a financial hedge, or a financial investment. When used as a hedge, a CRR locks in the price of congestion at the purchase price of the CRR. When purchased as an investment, it may be used as a financial tool to speculate whether the congestion rent will be greater than the purchase price.
 
@@ -33,12 +33,12 @@ The main purposes of the ERCOT CRR market are to:
     
 
 + [Demand/supply curves are convex (and not linear) due to:](https://www.quora.com/Why-are-demand-curves-downward-sloping)
-  1. Substitution effect: "Suppose that the price of the good falls from p0 and p1then the consumer will substitute other goods to buy this good."
+  1. Substitution effect: "Suppose that the price of the good falls from $p_0$ to $p_1$ then the consumer will substitute other goods to buy this good."
   2. Income effect: "As the price of the good drop from $p_0$ to $p_1$ the quantity demanded will rise because of the rise in real income of the consumer."
   3. Population effect: "As the price of any good falls it become affordable to more people, so at lower price more people enter the market and demand for that good."
-  4. Law of diminishing marginal utility: "As you consume more and more of a good you derive less and less satisfaction from the consumption of the additional unit of that good"
+  4. Law of diminishing marginal utility: "As you consume more and more of a good you derive less and less satisfaction from the consumption of the additional unit of that good."
 
-# EDF Questionnaire
+# Electricity Trading Questionnaire
 
 ## Questions
 

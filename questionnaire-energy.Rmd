@@ -1,0 +1,93 @@
+---
+title: ''
+output: teproj::word_document_te
+---
+
+## Questions
+
+1. What, professionally, are you proudest about in the last year?
+2. Name one inefficiency or missed profit opportunity that you would pursue if you had full control at your current organization?
+3. What is one word that your boss would use to describe you?
+4. If you had the EDF job at the salary you asked for, what type of an opportunity would you then LEAVE this job for?
+5. Tell me how you would go about constructing an FTR trading portfolio. Make any assumptions about capital, risk constraints, etc. that you need to, but clearly outline what those assumptions are?
+6. If you were to buy a path in an FTR auction, how would you determine the right bid price and bid curve?
+7. What do most people trying to model congestion in ISO markets get wrong?
+8. Pick 5 out of the following qualities which you believe best describe you. Rank those 5 in the order of most descriptive to least. (commercial, opportunistic, thoughtful, diligent, team player, enthusiastic, satisfied, curious, obsessive, aggressive, winner, creative, charismatic, careful, confident)
+
+## Responses
+
+1. In general, I'm proud of the way that I was able to quickly and effectively take on several different responsibilities in the Grid Analysis group at ERCOT (after moving from the CRR group in Dec. 2018, which had vastly different responsibilities).
+
+- I became the "primary" in conducting Voltage Profile Seasonal Studies despite never seeing how these twice-a-year studies were conducted before.
+- I did nearly all of the programming for computationally intensive contingency analysis tool that can take real-time EMS cases, run N-2 analysis (relatively) quickly, and generate interpretable results for managers.
+- During the "tight" summer, I developed displays to enhance monitoring of real-time system conditions.
+
+In all, I feel like I've developed a better understanding of the balance of markets (which I got some of from my CRR role) and reliability in grid operations.
+
+2. Arbitrage across CRR auctions for the same TOU-month, i.e. selling a CRR for a profit (instead of simply holding it and allowing it to settle in DAM) after buying it in an earlier auction.
+
+I'm not sure I would really call this an inefficiency since it's a known strategy (and I believe DC Energy is relatively known for doing this). It can certainly "backfire", e.g. if the sold CRR would have ended up making a larger profit (compared to what you sold it at). Nonetheless, I think it can be a sound play for CRRs sourcing/sinking at nodes where prospects have changed since the time that it was purchased. For example, if you purchased a CRR across a path where a transmission project is suddenly expected to be completed a couple of months in advance, thereby negating the congestion that you had expected to occur in the area, then it would be worthwhile to try to sell the CRR (either for a profit, or possibly for a small loss, if it is deemed to be better than the loss than might be expected if it is held) before it is settled in the DAM. The same might be said for a new RAS that is implemented (unexpectedly) that circumvents re-occurring congestion in an area that had, before then, been a target for hedging price differences.
+
+Aside from this, there is a difference in how phase-shifting transformers are treated in the ERCOT CRR and DAM software that could possibly be exploited, but I'm not really sure to what extent. (Of course, there are always going to be differences in the CRR and DAM models, but this is a "fundamental" difference.)
+
+3. Probably "diligent", closely followed by "disciplined".
+
+For as long as I can remember, my teachers, peers, and family have applauded my work ethic and discipline. When I have my mind set on achieving something, I create a course of action for myself (typically, not something  "too" strict, i.e. having dates, but, instead, guided by specific tasks to be completed) and hold myself accountable towards fulfilling what I've outlined for myself. My diligence, combined with discipline, has been key for me when preparing for multiple exams in a short span of days (and doing well on them); preparing for solos/concerts (when I played music when I was younger); exercising consistently, etc. These traits have undoubtedly transferred to my everyday work.
+
+4. Assuming EDF's work culture is satisfactory (along with the salary), there are two reasons why I would consider leaving: (1) location and (2) career change.
+
+1) I've lived in either San Antonio or Austin my entire life, and I really enjoy both cities. (I also had an internship in Houston. The city wasn't as appealing to me at the time, but I think I can grow to like it more.) I like living close to my parents and my younger brother, so I would prefer to stay in one of these cities.
+
+2) I've always been fascinated with the field of sports analytics, so some kind of opportunity in that industry would be enticing. This is not to say that I would certainly leave for that kind of opportunity. (I've had a sports analytics job offer in the past and turned it down.) From my understanding, there is lots of turnover (and worse job stability) in that field compared to energy/electricity markets, as well as lower pay and longer hours, all of which makes it somewhat less attractive. 
+
+5. As mentioned, there are a myriad of assumptions that need to be made in preparation for developing a strategy for FTRs. For the sake of argument, let's say that
+  
+    1) I'm purely a financial trader, i.e. that I don't own any generation or load assets;
+    2) I don't have stakes in another commodity market, e.g. gas or oil (that might oblige me to hedge certain settlement points);
+    3) I'm only focused on the ERCOT region.
+    4) I can afford to buy 10 to 50 paths in a given auction (at a reasonable price and quantity); 
+    5) I'm risk neutral (not risk averse or risk acceptant), i.e. that I'm indifferent to a 50/50 lottery and a guarantee for a certain amount of money, and that I want to maximize my expected returns.
+
+(Surely there are more assumptions about capital, risk, and obligations that I'm missing.)
+
+Now, regarding price and congestion forecasting, I would use an approach that leverages simulation and sensitivity analysis (and, given the appropriate time and computational resources, even AI) to model (specifcally, to model the DAM, but also CRR relevant information, such as bids from other participants). This would involve building out a large set of scenarios that accounts for the variability in the many "inputs" to such forecasting (and, of course, using software to run the simulations):
+
+- transmission topology;
+- weather conditions (in particular, the most extreme temperatures/worst-case conditions);
+- hourly nodal demand---which, among other things, is a combination of weather-dependent residential load, price responsive load, and more constant industrial load);
+- fuel prices (particularly, that of natural gas), which plays a role in unit availability;
+- (hourly) generation characteristics, i.e. intermittency of renewables, startup and operating costs, heat rate curves, ramping capabilities, max and min capabilities, AS capabilities, etc.;
+- generation outages---which tend to have a seasonal pattern;
+- transmission outages---which, aside from maintenance needs, may be related to new equipment energization;
+- DC tie scheduling (the means of importing/exporting in ERCOT);
+- contingencies and RASs;
+- equipment ratings;
+- bidding behavior of other market participants.
+    
+Some of these things are certainly more "uncertain" than others (bidding behavior and forced generation outages) and might potentially be treated as a "constant" (a constant "unknown") in simulations. Those inputs that are more "unknown" than "uncertain" are probably better evaluated with re-enforcement learning techniques (which is beyond the scope of simulations and sensitivity analysis but would be a worthwhile venture given sufficient time and resources).
+
+I should note that each power flow simulations would calculate/incorporate generation shift factors, which are instrumental to relating constraints to LMPs. The likelihood of constraints themselves is implicitly dependent on inputs such as topology, equipment ratings, nodal demand, etc.
+
+From the simulation output, I would identify locations where congestion is most likely to occur and, along with it, where extreme prices are most likely to occur. I would compare this to historical prices---partially assuming that other market participants will behave as they have before and/or that they will use historical prices in their own forecasting analysis---and identify the largest discrepancies, particularly those that would result in the best chances of profit. Really, if this kind of economic maximization can be built into the simulations---perhaps as the objective of some kind of optimization procedure that is fed the simulation output---that would be best. But, even with this optimization, I would need to be careful with how I'm defining this economic goal. How do I balance (1) "maximum" profit across any single simulation (perhaps with a very low probability) versus (2) "average" profit (accounting for a range of probabilities)? My thought would be to create a mixed portfolio---make offers on a couple of the high-risk/high-reward source-sink pairs (despite my risk-neutral mentality) at prices lower than what I think they could garner, but focus on offers on the pairs that I've projected to be profitable across a larger proportion of simulations (at lower margins).
+
+With all of this being said, I do not mean to undermine the viability of a more "fundamental" approach that focuses on only a handful of "simplified" models with specific economic/operations assumptions. This can be a reasonable approach if one does not have the computational resources or expertise to employ a stochastic approach like the one I've described.
+
+6. First, I would use the simulation-based approach described above to give me a range of probabilities for the price of a given node in each hour.
+    
+Next, if I haven't also used this approach to "directly" give me the source-sink pairs with the largest price discrepancies (averaged across all hours in a TOU-month), I would do this next.
+    
+Then, if I think that other market participants are unlikely to see the same opportunity as me, I would assume that they follow their typical bid patterns, and make a bid curve offer that is highly likely---to put a number on it, let's say three standard deviations above the average for that path, according to historical data---to be awarded at the highest point of the curve. The lowest point of the curve might be two standard deviations below the historical average. The other price points would build out a concave upwards curve between these maximum and minimum points of the bid curve. (This scenario is for a buy bid.) On the other hand, if I do think that other market participants are likely to see the same opportunity, then I would employ a similar strategy, adding some reasonable "buffer" to the historical averages.
+    
+If possible, I would use/design software to make recommendations for me regarding bid curves (given my tolerance for risk and profit goals as inputs). Ultimately, I would still want to have room for manual intervention regarding the final submitted curve for a given path.
+
+7. Well, I'm not sure people are completely wrong about certain aspects with their approaches. If I had to pinpoint one thing, I think I would say that there might be an over-reliance on historical data regarding constraints, LMPs, and clearing prices. (Apologies if this is not in the scope of what you mean by "modeling".) Of course, historical data can be useful, but I really think it should be used primarily for "validation purposes". One is best off modeling the system (as described before) and using the historical data to "check" that your simulation output/findings are reasonable. 
+
+Aside from this, I think that, in general, it's difficult to quantify the amount of uncertainty associated with all the "variables" that play a role in price and congestion forecasting. Even if one has a pretty good gauge on which factors are more uncertain than others, one should be ready to "update" these notions as time passes and things change.
+
+8. Qualities:
+
+    1) diligent
+    2) careful
+    3) team player
+    4) thoughtful
+    5) curious
