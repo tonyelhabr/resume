@@ -1,5 +1,140 @@
 
+# Personal Experience
+
+# 2019 NESSIS
+
+## Favorite Presentations
+
+### ["Extracting Player Tracking Data from Video Using Non-Stationary Cameras and a Combination of Computer Vision Techniques"](https://drive.google.com/uc?id=1BhFbAPDxKe2oxYen_qARJJ5kM3-WL5Fj&export=download), Neil Johnson, ESPN Analytics
+
+[YouTube video](https://www.youtube.com/watch?v=tvVXl0f45Rc&feature=youtu.be)
+
+### ["Unsupervised Run Type Detection"](http://nessis.org/nessis19/Sam-Gregory.pptx), Sam Gregory, Sportlogiq
+
+[YouTube video](https://www.youtube.com/watch?v=Z4Q7JBMu8m4&feature=youtu.be)
+
+### “Classifying and Analyzing Team Strategy in Professional Soccer Matches” by Laurie Shaw
+
+[YouTube video](https://www.youtube.com/watch?v=VU4BOu6VfbU&feature=youtu.be)
+
+### ["Going Deep: Models for Continuous-Time Within-Play Valuation of Game Outcomes in American Football with Tracking Data"](https://docs.google.com/presentation/d/1j1CzZncIFBtP0qjnStcD505JSxvv3q5XejP0QtWsE_o/edit#slide=id.p), Ron Yurko, Carnegie Mellon University
+
+[YouTube video](https://www.youtube.com/watch?v=JKfdPe0PkEY&feature=youtu.be)
+
++ Play-by-play evaluation with `{nflscrapR}`
+ + Expected points (EP): how many points have teams scored in similar situations?
+ Multinomial logistic regression
+ + Win probability (WP): have teams in similar situations won the game?
+ Generalized additive model (GAM)
+ 
+ + What about continuous, within play value?
+
++ Continuous-time valuation with player-tracking data
+
+ + Cervone et. al. (2014, 2016), two-level Markov chain approach
+ + Soccer extensions: Link et. al. (2016), Fernandez et. al (2019)
+
++ Continuous-time play value framework
+ + **GOAL**: For each play $i \in n$, model the end-of-play yard line $Y_i^\star$
+  + $t > 0$: time between start (i.e. snap) and end of play)
+  + $\mathcal{F}(X_{t,i})$: filtration of ball and player locations, trajectories, etc. until $t$
+  + $\mathbb{E}[Y_{t,i}^\star | \mathcal{F}(X_{t,i})$: expected end-of-play yard line at time $t$.
+
++ General framework
+
+![](model-yurko.png)
+
++ Ball-carrier model
+
+ + We model the **yards gained** $Y_{t,i}$ from the current position on the field at $t$: $\mathbb{E}[Y_{t,i} | \mathcal{F}(X_{t,i}) = f(\mathcal{F}(X_{t,i}))$
+ + Use the fact that $Y_{t,i}^\star = Y_{t,i} + \text{ [player’s current yard line] }$
+ + Then by linearity of expectations,$\mathbb{E}[Y_{t,i}^\star | \mathcal{F}(X_{t,i}) = \mathbb{E}[Y_{t,i} | \mathcal{F}(X_{t,i})] + \text{ [player’s current yard line] }$ 
+
++ Model validation
+ + Leave-one-week-out (LOWO) cross-validation, i.e. train on weeks 1-5, get frame predictions for week 6
+ + Criteria for hold-out predictions:
+  + Overall holdout root mean-squared error (RMSE)
+  + Error across ball-carrier sequence
+
++ LSTM displays best LOWO CV results
+
+### ["Route Identification in the National Football League"](https://docs.google.com/presentation/d/1Q8CSdB7YJn9jvvnDJBG-o3tKy8LnpodmdIK8ZxiatPI/edit#slide=id.g54c124210e_0_0) (best viewed in "presentation mode"), Dani Chu, Simon Fraser University
+
+[YouTube video](https://www.youtube.com/watch?v=rnAzURpLLbs&feature=youtu.be)
+
++ Bezier Curve
+
+ + Defined on $t_i \in [0, 1]$ with control point $\theta$. In 2 dimensions and degree 9 ...
+
+
++ Curve Clustering
+ + Assume 
+  + There are K route types
+  + Player trajectories are realizations of one of the K routes 
+  + Route types are specified by a Bezier Curve
+ + Then
+  + Use the Expectation Maximization (EM) algorithm to
+  + Learn the template curves 
+  + Label probabilities for each observed trajectory 
+
+
+### ["How Do Typical Runners' Performances Vary with Age and Gender?"](http://nessis.org/nessis19/Richard-Smith.pdf), Richard Smith, University of North Carolina, Chapel Hill
+
+[YouTube video](https://www.youtube.com/watch?v=oNnkeB0T3II&feature=youtu.be)
+
 # EPV
+
+## ["Decomposing	the	Immeasurable	Sport: A	deep	learning	expected	possession	value	framework	 for soccer"](http://www.lukebornn.com/papers/fernandez_sloan_2019.pdf)
+
+"While	 our	 aim	 is	 similar	 to	 that	 of	 the	 expected	
+possession	 value	 (EPV)	 approach	in	 basketball	 [1],	 our	 focus	 on	 soccer	 necessitates	 a	 drastically	
+different	approach	to	account	for	the	nuances	of	the	sport,	such	as	looser	notions	of	possession,	the	
+ability	 of	 passes	 and	 drives	 to	 happen	 at	 any	 location,	 and	 space-time	 dependent	 turnover	
+evaluation.	"
+
+"We	define	expected	possession	value	(EPV)	as	the	expected	outcome	of	a	soccer	possession	based	
+on	the	full	resolution	spatiotemporal	data.	EPV	is	a	real	number	in	the	[-1, 1]	range,	expressing	the	
+likelihood	 of	 a	 possession	 ending	in	 a	 goal	 for	 the	 attacking	 team	 (1)	 or	 a	 goal	 by	 the	 defending	
+team	(-1)	after	an	immediate	possession	regain.	Similarly	to	the	EPV	approach	for	basketball	[1,	2]	
+our	model	provides	a	frame	by	frame	estimation	of	the	outcome	of	the	possession,	acting	as	a	stock	
+ticker	for	the	expected	outcome	of	a	possession.	Aside	from	a	shared	high-level	goal,	however,	our	
+approach	 is	 drastically	 different,	 driven	 by	 the	 underlying	 differences	 in	 the	 two	 sports.	 As	 one	
+concrete	example,	in	soccer	we	cannot	assume	that	passes	are	played	directly	to	a	player’s	location,	
+as	 the	ball	can	be	played	into	open	space	in	 front	of	or	behind	the	intended	receiver;	as	such,	we	
+need	 to	consider	 the	 full	space	of	potential	destination	locations.	As	another	example,	 there	is	no	
+time	limit	 for	soccer	possessions	(aside	 from	the	45	minute	half),	with complex	and	often	blurred	
+dynamics	between	offense	and	defense."
+
+"Recent work in soccer analytics has provided powerful models for inspecting a variety of specific game situations, including pass risk and quality [3], attacking shot danger [4], and off-ball  positioning in shooting opportunities [5]. While being successful in the specific task they resolve,  there is no clear path on how we could join these models together into a more comprehensive  framework of analysis. Other approaches make use of Markov processes to correlate sequence of  events within possession sequences with the probability of scoring [6, 7, 8], providing a similar  overall objective of that of EPV but with lower interpretability capabilities than the presented model. Here, we propose a decoupled model for EPV that decomposes goal value into the expected values of different actions that further the possession, along with the probabilities of these actions. Equation (1) presents EPV, the expected outcome of the possession given all the spatiotemporal information at time $t$ ($T_t$) as the composition of independent models for three main types of actions ($A$): passes ($\rho$), shots ($\zeta$) and ball-drives ($\delta$) Different sets of these components are estimated independently, such as the value surface for passes, the value surface for ball-drives, the likelihood of one of these events taking place, and the expectation of goals for shots."
+
+$$
+\begin{array}{ccl}
+EPV(t) & = & \mathrm{E}[X | T_t] \\
+& = & \mathrm{E}[X | A=\rho] \mathrm{P}(A=\rho)+\mathrm{E}[X | A=\zeta] \mathrm{P}(+\mathrm{E}[X | A=\delta] \mathrm{P}(A=\delta)
+\end{array}
+$$
+
+where
+
++ $\mathrm{E}[X | A=\rho]$ is the passing value surface dependent on destination location
++ $\mathrm{E}[X | A=\zeta]$ is the expected goals model
++ $\mathrm{E}[X | A=\delta]$ drive value surface dependent on destination location
++ $\mathrm{P}(A)$ are the action likelihood models
+
+
+"Each	 of	 the	 model	 components	 is	 estimated	 independently	 through	 machine	 learning	
+algorithms	 based on	 a	 wide	 set	 of	 spatiotemporal	 features.	 Pass	 and	 turnover	 probabilities	 are	
+estimated	 using	 logistic	 regression.	 Action	 likelihood	 is	 modeled	 through	 a	 convolutional	 neural	
+network	on	top	of	pitch	control	and	pitch	influence	surfaces	based	on	a	recent	statistical	model	for	
+pitch	control	[9].	Pass	and	ball-drive	value	expectation	are	learned	from	a	set	of	carefully	designed	
+deep	 neural	 networks.
+...
+Recently,	neural	networks	have	been	explored	in	a	
+similar	context	[10],	by	estimating	player	positioning	and	probability	of	reaching	certain	locations	
+on	the	field,	which	is	fundamentally	different	from	the	objectives	of	our	approach.	For	the	purposes	
+of	this	paper	we	focus	not	on	the	technical	details,	but	rather	the	power	of	the	decoupled	modeling	
+framework	in	answering	many	important	questions	previously	unanswered	by	the	soccer	analytics	
+community.	 "
 
 ## ["POINTWISE: Predicting Points and Valuing Decisions in Real Time with NBA Optical Tracking Data" Paper](http://www.lukebornn.com/papers/cervone_ssac_2014.pdf)
 
@@ -30,87 +165,97 @@ $$
 
 "The macro/microtransition dichotomy facilitates calculating components of (1) using statistical models. The macrotransition probabilities $P( \text{macro in } (t, t + \epsilon) | d_t)$ (e.g., the instantaneous probability that a player will pass or shoot the ball) respond to the full-resolution spatial configuration of the players, and are therefore the most nuanced components. We compute these using competing risks, a statistical framework for modeling the occurrence of discrete events in continuous time, incorporating situational covariates (e.g., presence of defender between player and teammate), and spatially-smoothed random effects that capture individual players' tendencies. We compute $E[\text{points} | \text{macro in } (t, t + \epsilon), d_t]$ by modeling a coarsened version of the court space as a homogeneous Markov chain (a common technique in baseball [6] and football [7]). We compute the final components in (1), based on microtransitions, from the macrotransition components and some basic mathematical assumptions of local space-time smoothness."
 
+## ["A Multiresolution Stochastic Process Model for Predicting Basketball Possession Outcomes"](https://arxiv.org/pdf/1408.0777v3.pdf)
+
 # xG
 
 ### ["Premier League Projections and New Expected Goals" Article](https://cartilagefreecaptain.sbnation.com/2015/10/19/9295905/premier-league-projections-and-new-expected-goals)
 
 + Definition (brief):
-  + "Expected goals is a method for estimating the quality of chances that a football team creates or concedes in a match. This is the thing I like a lot about xG. It may take a lot of data crunching to create specific xG values, but the underlying idea makes football sense. How many good chances did a team create?"
-  
+ + "Expected goals is a method for estimating the quality of chances that a football team creates or concedes in a match. This is the thing I like a lot about xG. It may take a lot of data crunching to create specific xG values, but the underlying idea makes football sense. How many good chances did a team create?"
+ 
 + Inputs (brief):
-  + distance (to goal)
-  + angle (to goal)
-  + type of pass
-    + cross
-    + throughball
-    + etc.
-  + type of play leading to shot
-    + set play
-    + counterattack
-    + establish possession
-    + etc.
+ + distance (to goal)
+ + angle (to goal)
+ + type of pass
+  + cross
+  + throughball
+  + etc.
+ + type of play leading to shot
+  + set play
+  + counterattack
+  + establish possession
+  + etc.
 
 + Formula for "Regular Shots"
-  + log(`goals`) = 
-  (
-  -3.19 
-  - 0.095 * `distance` 
-  + 3.18 * `inverse_distance` 
-  + 1.88 * `relative_angle` 
-  + 0.24 * `inverse_angle` 
-  - 2.09 * `inverse_dist*angle` 
-  + 0.45 * throughball_assist 
-  + 0.64 * throughball_2nd_assist
-  + 0.31 * assist_across_face 
-  - 0.15 * cutback_assist 
-  + 2.18 * inverse_assist_distance 
-  + 0.12 * assist_angle 
-  + 0.23 * fast_break 
-  + 0.18 * counterattack 
-  + 0.09 * established_possession 
-  - 0.18 * following_corner 
-  + 1.2 * big_chance 
-  + 1.1 * following_error 
-  + 0.39 * following_dribble 
-  + 0.14 * dribble_distance 
-  + 0.37 * rebound 
-  + 0.03 * game_state 
-  + 0.07 * Bundesliga 
-  - 0.1 * EPL 
-  - 0.09 * LaLiga 
-  - 0.07 * SerieA
-  )
-  
-+ There are additional formulas for
-  + headed shots assisted by crosses
-  + non-headed shots assisted by crosses
-  + headed shots not assisted by crosses
-  + shots from direct free kicks
-  + shots following a dribble of the keeper
-  
+ + log(`goals`) = 
+ (
+ -3.19 
+ - 0.095 * `distance` 
+ + 3.18 * `inverse_distance` 
+ + 1.88 * `relative_angle` 
+ + 0.24 * `inverse_angle` 
+ - 2.09 * `inverse_dist*angle` 
+ + 0.45 * throughball_assist 
+ + 0.64 * throughball_2nd_assist
+ + 0.31 * assist_across_face 
+ - 0.15 * cutback_assist 
+ + 2.18 * inverse_assist_distance 
+ + 0.12 * assist_angle 
+ + 0.23 * fast_break 
+ + 0.18 * counterattack 
+ + 0.09 * established_possession 
+ - 0.18 * following_corner 
+ + 1.2 * big_chance 
+ + 1.1 * following_error 
+ + 0.39 * following_dribble 
+ + 0.14 * dribble_distance 
+ + 0.37 * rebound 
+ + 0.03 * game_state 
+ + 0.07 * Bundesliga 
+ - 0.1 * EPL 
+ - 0.09 * LaLiga 
+ - 0.07 * SerieA
+ )
+ 
++ There are separate formulas for
+ + regular shots
+ + headed shots assisted by crosses
+ + non-headed shots assisted by crosses
+ + headed shots not assisted by crosses
+ + shots from direct free kicks
+ + shots following a dribble of the keeper
+ 
 + Evaluation:
-  + Used 2010-20111 through 2013-2014 data ffor big five leagues for training data.
-  + Used 2014-2105 data from big five leagues for testing data.
-  + RMSE of 0.258 on in-sample data and out-of sample data.
-  + R^2 for Ligue 1 was notably lower compared to the other leagues.
+ + Used 2010-20111 through 2013-2014 data ffor big five leagues for training data.
+ + Used 2014-2105 data from big five leagues for testing data.
+ + RMSE of 0.258 on in-sample data and out-of sample data.
+ + R^2 for Ligue 1 was notably lower compared to the other leagues.
 
 ## ["Soccer Showcase: Expected Goals, Explained" YouTube Video ](https://www.youtube.com/watch?v=mPTno8tDCbs) (Uploaded 8/28/2018)
 
 + Inputs:
-  + distance (to goal)
-  + big_chance
-    + "A situation where a player should reasonable be expected to score usually in a one-on-one scenario or from very close range."
-  + directness
-  + assist_dist
-  + dribble
-  + rebound
-  + assist_angle
-  + counterattack
-  + error
-  + throughball
-  + angle (to goal)
-  
+ + distance (to goal)
+ + big_chance
+  + "A situation where a player should reasonable be expected to score usually in a one-on-one scenario or from very close range."
+ + directness
+ + assist_dist
+ + dribble
+ + rebound
+ + assist_angle
+ + counterattack
+ + error
+ + throughball
+ + angle (to goal)
+ 
 + Inuition:
-  + Provides an estimate the quality of the scoring opportunity
-  + "What is the likelihood that a shot from this location and in this game situtation will be scored?"
-    + location + situtation = xG
+ + Provides an estimate the quality of the scoring opportunity
+ + "What is the likelihood that a shot from this location and in this game situtation will be scored?"
+  + location + situtation = xG
+
+| lowers xG  | raises xG              |
+|--------------|-------------------------------------|
+| crosses   | throughballs            |
+| corner kicks | square balls inside the 18-yard box |
+|       | completed dribbles         |
+|       | counterattacks           |
