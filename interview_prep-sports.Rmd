@@ -1,5 +1,96 @@
 
+# Terms  [^1]
+
+[^1]: https://www.precision-analytics.ca/blog/a-gentle-inla-tutorial/
+
++ Markov-chain Monte Carlo (MCMC)
+
++ Hierarchal models
+  + widely used across disciplines to represent complex dependency structures in data. Uncertainty in model parameters and latent variables or processes can be encoded with appropriate prior distributions using a Bayesian framework
+
++ Credible interval vs. Confidence interval
+
++ Bayesian vs. frequentist
+  + Bayesian
+    + generally want posterior distributions for our models (e.g., the distribution of the parameters given the data
+    + posterior distribution is equal to the data likelihood multiplied by the priors over the normalizing constant (so the posterior integrates to one)
+  + Frequentist
+    + often maximize the data likelihood using numerical methods like Newton-Raphson to obtain a point estimate for a given parameter (which we view as fixed but unknown), and use the idea of theoretical resampling to estimate a corresponding confidence interval around that parameter estimate
+
+
++ Conjugate priors
+  + canonical pairs of distributions that simplify Bayesian analysis
+
+# Neural Networks
+
+## ["Epoch vs Batch Size vs Iterations"](https://towardsdatascience.com/epoch-vs-iterations-vs-batch-size-4dfb9c7ce9c9)
+
+"To find out the difference between these terms you need to know some of the machine learning terms like Gradient Descent to help you better understand."
+
+"It is an ***iterative*** optimization algorithm used in machine learning to find the best results (minima of a curve). *Gradient* means the rate of inclination or declination of a slope. *Descent* means the instance of descending. The algorithm is iterative means that we need to get the results multiple times to get the most optimal result."
+
+"We need terminologies like epochs, batch size, iterations only when the data is too big which happens all the time in machine learning and we can’t pass all the data to the computer at once. So, to overcome this problem we need to divide the data into smaller sizes and give it to our computer one by one and update the weights of the neural networks at the end of every step to fit it to the data given."
+
++ Epoch: "One Epoch is when an ENTIRE dataset is passed forward and backward through the neural network only ONCE."
+  + "[U]pdating the weights with single pass or one epoch is not enough... As the number of epochs increases, more number of times the weight are changed in the neural network and the curve goes from underfitting to optimal to overfitting curve."
+  + There is no right answer to the question "What is the right number of epochs?"
+
++ Batch size: "Total number of training examples present in a single batch."
+  + "Batch size and number of batches are two different things."
+
++ Iterations: "the number of batches needed to complete on epoch"
+  + "The number of batches is equal to the number of iterations for one epoch."
+  + e.g. "We can divide the dataset of 2000 examples into batches of 500 then it will take 4 iterations to complete 1 epoch."
+  
+  ## ["Difference Between a Batch and an Epoch in a Neural Network"](https://machinelearningmastery.com/difference-between-a-batch-and-an-epoch/)
+
++ "Stochastic gradient descent is an iterative learning algorithm that uses a training dataset to update a model."
++ "The batch size is a hyperparameter of gradient descent that controls the number of training samples to work through before the model’s internal parameters are updated."
++ "The number of epochs is a hyperparameter of gradient descent that controls the number of complete passes through the training dataset."
+
+# WP
+
+## [`{ncaahoopR}`](https://github.com/lbenz730/ncaahoopR)
+
++ [`wp_compute` function](https://github.com/lbenz730/ncaahoopR/blob/ff96048788f943a339645d5e004e2f05a97d8e02/R/helpers.R)
+    + log(odds) ~ score difference | seconds remaining * score difference + favored by | seconds remaining * seconds_remaining
+
+## [`{nflscrapR}`](https://github.com/maksimhorowitz/nflscrapR)
+
++ `mgcv::bam()`
+
+# Expected Points
+
+## ["nflWAR: A Reproducible Method for Offensive Player Evaluation in Football" (Extended Edition)](https://arxiv.org/pdf/1802.00998.pdf)
+
++ "To estimate the probabilities of each possible scoring event conditional on the current game situation, we use multinomial logistic regression. For each play, we find the next scoring event within the same half (with respect to the possession team) as one of the seven possible events: touchdown (7 points), field goal (3 points), safety (2 points), no score (0 points), opponent safety (-2 points), opponent field goal (-3 points), and opponent touchdown (-7 points). Here, we ignore point after touchdown (PAT) attempts, and we treat PATs separately"
+
+| Variable | Variable description                                                         |
+|----------|------------------------------------------------------------------------------|
+| Down     | The current down (1st, 2nd, 3rd, or 4th)                                     |
+| Seconds  | Number of seconds remaining in half                                          |
+| Yardline | Yards from endzone (0 to 100)                                                |
+| log(YTG) | Log transformation of yards to go for a first down                           |
+| GTG      | Indicator for whether or not it is a goal down situation                     |
+| UTM      | Indicator for whether or not time remaining in the half is under two minutes |
+
+### [`{nflscrapR}`](https://github.com/maksimhorowitz/nflscrapR)
+
++ [`calculate_expected_points()` function](https://github.com/maksimhorowitz/nflscrapR/blob/23849e24d03a0450ffd0eb9c3684bc66bc46725b/R/ep_wp_calculator.R)
+  + `ep = (0 * no_score_prob) + (-fg_value * opp_fg_prob) + (-safety_value * opp_safety_prob) + (-td_value * opp_td_prob) + (fg_value * fg_prob) + (safety_value * safety_prob) + (td_value * td_prob)`
+
 # Personal Experience
+
+# ["OptaPro Analytics Forum 2018 - Luke Bornn Guest Talk"](https://www.youtube.com/watch?v=hirA6p42_pM)
+
++ Data Visualization as a tool
+  + Learn to communicate statistical ideas visually
+  + "Presenting raw information is usually the easiest path, but it's almost never the best path... Once we presented [it in a better way (visually)], then not only wanted the charts, but also the raw numbers once they understood the concept..."
+  + "Think carefully abou data visualization. How do the people that you are presenting to actually think about the underlying problem, and how do you turn the data into that?" "
+  + "Communicate on the levels [on which your audience thinks]."
+  + "Often times you need to metaphors and analogies."
+
++ "Don't let the data dictate the analysis. Instead, if you're trying to solve a problem, admit the limitations of the data... Don't frame the problem in terms of the data that you have; frame the problem, then re-admit the limitations and assumptions that you have to make given the data that you have... this will allow you to convey the information a lot more clearly and better address the issues.
 
 # 2019 NESSIS
 
@@ -23,9 +114,9 @@
 
 + Play-by-play evaluation with `{nflscrapR}`
  + Expected points (EP): how many points have teams scored in similar situations?
- Multinomial logistic regression
+  + Multinomial logistic regression
  + Win probability (WP): have teams in similar situations won the game?
- Generalized additive model (GAM)
+  + Generalized additive model (GAM)
  
  + What about continuous, within play value?
 
@@ -118,7 +209,7 @@ where
 
 + $\mathrm{E}[X | A=\rho]$ is the passing value surface dependent on destination location
 + $\mathrm{E}[X | A=\zeta]$ is the expected goals model
-+ $\mathrm{E}[X | A=\delta]$ drive value surface dependent on destination location
++ $\mathrm{E}[X | A=\delta]$ is the drive value surface dependent on destination location
 + $\mathrm{P}(A)$ are the action likelihood models
 
 
